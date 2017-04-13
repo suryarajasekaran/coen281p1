@@ -17,8 +17,7 @@ public class Shingling {
 
     public List getShingles(){
         List shingles = new ArrayList();
-        //generate array
-        for (int i=0;i<this.fileContent.length()-(k-1);i++)
+        for (int i = 0; i < (this.fileContent.length() - (k - 1)) ; i++)
             shingles.add(this.fileContent.substring(i,i+k));
         return shingles;
     }

@@ -7,7 +7,10 @@ public class Main {
         FileRead f = new FileRead("/Users/SuryaRajasekaran/scratch/coen281p1/input/f1Surya.txt");
         System.out.println(f.getFileContents());
 
-        Shingling shingling = new Shingling(f.getFileContents());
-        System.out.println(shingling.getShingles());
+        Shingling s = new Shingling(f.getFileContents());
+        System.out.println(s.getShingles());
+
+        MinHashing mH = new MinHashing(s.getShingles());
+        System.out.println(mH.getMinHashSet());
     }
 }
