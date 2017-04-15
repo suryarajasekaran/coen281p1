@@ -22,7 +22,9 @@ public class DocumentsProcessor {
         binaryMatrix.printBinaryMatrix();
         JaccardSimilarity jaccardSimilarity = new JaccardSimilarity(binaryMatrix.getBinaryMatrix());
         jaccardSimilarity.printDocumentSimilarityThresholdMatrix();
-
+        jaccardSimilarity.printIntersectionArray();
+        jaccardSimilarity.printUnionArray();
+        jaccardSimilarity.printDocumentSimilarityMatrix();
     }
 
 }

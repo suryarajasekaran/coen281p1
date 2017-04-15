@@ -10,20 +10,20 @@ public class JaccardSimilarity {
     int[][] intersectionArray;
     int[][] unionArray;
     float[][] documentSimilarityArray;
-    boolean[][] documentSimilarityThresholdArray;
+    Boolean[][] documentSimilarityThresholdArray;
 
     public JaccardSimilarity(HashMap<String, int[]> binaryMatrix){
         this.binaryMatrix = binaryMatrix;
         this.intersectionArray = new int[this.getTotalDocumentsCount()][this.getTotalDocumentsCount()];
         this.unionArray = new int[this.getTotalDocumentsCount()][this.getTotalDocumentsCount()];
         this.documentSimilarityArray = new float[this.getTotalDocumentsCount()][this.getTotalDocumentsCount()];
-        this.documentSimilarityThresholdArray = new boolean[this.getTotalDocumentsCount()][this.getTotalDocumentsCount()];
+        this.documentSimilarityThresholdArray = new Boolean[this.getTotalDocumentsCount()][this.getTotalDocumentsCount()];
         this.getDocumentSimilarityMatrix();
         this.getDocumentSimilarityThresholdMatrix();
     }
 
     public int getTotalDocumentsCount(){
-        return 3;//this.binaryMatrix.get(this.binaryMatrix.get(this.binaryMatrix.keySet().toArray()[0])).length;
+        return this.binaryMatrix.get(this.binaryMatrix.keySet().iterator().next()).length;
     }
 
     public float[][] getDocumentSimilarityMatrix() {
@@ -55,7 +55,7 @@ public class JaccardSimilarity {
         return this.documentSimilarityArray;
     }
 
-    public boolean[][] getDocumentSimilarityThresholdMatrix() {
+    public Boolean[][] getDocumentSimilarityThresholdMatrix() {
         for (int i=0; i<this.getTotalDocumentsCount(); i++) {
             for (int j=0; j<this.getTotalDocumentsCount(); j++){
                 if (this.documentSimilarityArray[i][j] > 0.5)
@@ -69,45 +69,71 @@ public class JaccardSimilarity {
     }
 
     public void printDocumentSimilarityThresholdMatrix(){
-
+        System.out.println("-----------------------------------");
+        System.out.println("Document Similarity Threshold Matrix");
+        System.out.print("\t\t");
         for (int i=0; i<this.getTotalDocumentsCount(); i++) {
+            System.out.format("%10s", "D" + i);
+        }
+        System.out.println();
+        for (int i=0; i<this.getTotalDocumentsCount(); i++) {
+            System.out.print("D" + i + "\t\t");
             for (int j=0; j<this.getTotalDocumentsCount(); j++){
-                System.out.print(this.documentSimilarityThresholdArray[i][j] + "\t");
+                System.out.format("%10s", this.documentSimilarityThresholdArray[i][j].toString());
             }
             System.out.println();
         }
     }
 
     public void printDocumentSimilarityMatrix(){
-
+        System.out.println("-----------------------------------");
+        System.out.println("Document Similarity Matrix");
+        System.out.print("\t\t");
         for (int i=0; i<this.getTotalDocumentsCount(); i++) {
+            System.out.format("%10s", "D" + i);
+        }
+        System.out.println();
+        for (int i=0; i<this.getTotalDocumentsCount(); i++) {
+            System.out.print("D" + i + "\t\t");
             for (int j=0; j<this.getTotalDocumentsCount(); j++){
-                System.out.print(this.documentSimilarityArray[i][j] + "\t");
+                System.out.format("%10f", this.documentSimilarityArray[i][j]);
             }
             System.out.println();
         }
     }
 
     public void printIntersectionArray(){
-
+        System.out.println("-----------------------------------");
+        System.out.println("Intersection Array");
+        System.out.print("\t\t");
         for (int i=0; i<this.getTotalDocumentsCount(); i++) {
+            System.out.format("%10s", "D" + i);
+        }
+        System.out.println();
+        for (int i=0; i<this.getTotalDocumentsCount(); i++) {
+            System.out.print("D" + i + "\t\t");
             for (int j=0; j<this.getTotalDocumentsCount(); j++){
-                System.out.print(this.intersectionArray[i][j] + "\t");
+                System.out.format("%10d", this.intersectionArray[i][j]);
             }
             System.out.println();
         }
     }
 
     public void printUnionArray(){
-
+        System.out.println("-----------------------------------");
+        System.out.println("Union Array");
+        System.out.print("\t\t");
         for (int i=0; i<this.getTotalDocumentsCount(); i++) {
+            System.out.format("%10s", "D" + i);
+        }
+        System.out.println();
+        for (int i=0; i<this.getTotalDocumentsCount(); i++) {
+            System.out.print("D" + i + "\t\t");
             for (int j=0; j<this.getTotalDocumentsCount(); j++){
-                System.out.print(this.intersectionArray[i][j] + "\t");
+                System.out.format("%10d", this.unionArray[i][j]);
             }
             System.out.println();
         }
     }
-
-
 
 }
