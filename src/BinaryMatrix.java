@@ -8,15 +8,6 @@ public class BinaryMatrix {
 
     public List[] shingles;
     public HashMap<String, int[]> binaryMatrix;
-    /*
-
-    array = [1,2,3,4] array[i]
-    list = 1->2->3 => [1,2,3,4] => list.get(i)
-    hmap : { fruits : [banana, organce], vegetables = [tomato, onion], meat = [chicken, mutton]}
-                key : value
-
-           { shingle1 : [D1,D2,...Dn], shingle2 : [D1,D2,...Dn]
-     */
 
     public BinaryMatrix(List[] shingles){
         this.shingles = shingles;
