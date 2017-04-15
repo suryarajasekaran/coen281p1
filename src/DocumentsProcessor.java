@@ -21,10 +21,10 @@ public class DocumentsProcessor {
         BinaryMatrix binaryMatrix = new BinaryMatrix(shinglingResults);
         binaryMatrix.printBinaryMatrix();
         JaccardSimilarity jaccardSimilarity = new JaccardSimilarity(binaryMatrix.getBinaryMatrix());
-        jaccardSimilarity.printDocumentSimilarityThresholdMatrix();
         jaccardSimilarity.printIntersectionArray();
         jaccardSimilarity.printUnionArray();
         jaccardSimilarity.printDocumentSimilarityMatrix();
+        jaccardSimilarity.printDocumentSimilarityThresholdMatrix();
     }
 
 }

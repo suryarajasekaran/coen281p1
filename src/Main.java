@@ -10,7 +10,8 @@ public class Main {
                                                                     "/Users/SuryaRajasekaran/scratch/coen281p1/input/f2.txt",
                                                                     "/Users/SuryaRajasekaran/scratch/coen281p1/input/f2.txt",
                                                                     "/Users/SuryaRajasekaran/scratch/coen281p1/input/f4.txt",
-                                                                    "/Users/SuryaRajasekaran/scratch/coen281p1/input/f4.txt"
+                                                                    "/Users/SuryaRajasekaran/scratch/coen281p1/input/f4.txt",
+                                                                    "/Users/SuryaRajasekaran/scratch/coen281p1/input/f6.txt"
                                                                    );
 
 

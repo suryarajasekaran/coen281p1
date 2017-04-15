@@ -33,13 +33,19 @@ public class BinaryMatrix {
 
     public void printBinaryMatrix(){
         this.getBinaryMatrix();
-        
+        System.out.println("-----------------------------------");
+        System.out.println("Binary Matrix");
+        System.out.print("\t\t\t");
+        for (int i=0; i<shingles.length; i++) {
+            System.out.format("%8s", "D" + i);
+        }
+        System.out.println();
         for (Map.Entry<String,int[]> item : this.binaryMatrix.entrySet()) {
             String key = item.getKey();
             int[] value = item.getValue();
-            System.out.print(key + " : ");
+            System.out.format("%12s", key);
             for (int data : value){
-                System.out.print(data + " ");
+                System.out.format("%8d", data);
             }
             System.out.println();
         }

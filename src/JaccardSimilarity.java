@@ -104,7 +104,7 @@ public class JaccardSimilarity {
 
     public void printIntersectionArray(){
         System.out.println("-----------------------------------");
-        System.out.println("Intersection Array");
+        System.out.println("Intersection Array Matrix");
         System.out.print("\t\t");
         for (int i=0; i<this.getTotalDocumentsCount(); i++) {
             System.out.format("%10s", "D" + i);
@@ -121,7 +121,7 @@ public class JaccardSimilarity {
 
     public void printUnionArray(){
         System.out.println("-----------------------------------");
-        System.out.println("Union Array");
+        System.out.println("Union Array Matrix");
         System.out.print("\t\t");
         for (int i=0; i<this.getTotalDocumentsCount(); i++) {
             System.out.format("%10s", "D" + i);
