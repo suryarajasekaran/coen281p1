@@ -4,13 +4,14 @@
 public class Main {
 
     public static void main(String[] args){
-        FileRead f = new FileRead("/Users/SuryaRajasekaran/scratch/coen281p1/input/f1Surya.txt");
-        System.out.println(f.getFileContents());
 
-        Shingling s = new Shingling(f.getFileContents());
-        System.out.println(s.getShingles());
+        DocumentProcessor documentProcessor = new DocumentProcessor("/Users/SuryaRajasekaran/scratch/coen281p1/input/f1Surya.txt",
+                                                                    "/Users/SuryaRajasekaran/scratch/coen281p1/input/f1.txt",
+                                                                    "/Users/SuryaRajasekaran/scratch/coen281p1/input/f2.txt"
+                                                                   );
 
-        MinHashing mH = new MinHashing(s.getShingles());
-        System.out.println(mH.getMinHashSet());
+
+
+        documentProcessor.processDocuments();
     }
 }
