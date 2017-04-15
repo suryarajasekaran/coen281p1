@@ -3,11 +3,11 @@ import java.util.List;
 /**
  * Created by SuryaRajasekaran on 4/15/17.
  */
-public class DocumentProcessor {
+public class DocumentsProcessor {
 
     public String[] documents;
 
-    public DocumentProcessor(String... documents){
+    public DocumentsProcessor(String... documents){
         this.documents = documents;
     }
 
