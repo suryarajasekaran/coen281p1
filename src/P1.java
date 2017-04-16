@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -5,34 +7,40 @@ import java.util.Scanner;
  */
 public class P1 {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter dat file (full-path ONLY!) : ");
-        String detailFilePath = scanner.next();
-
-        System.out.println("======================================================================");
-        System.out.format("Processing Input File : %s", detailFilePath);
         System.out.println();
-        FileCheck fileCheck = new FileCheck(detailFilePath);
-        if (fileCheck.isFile(detailFilePath) == true) {
-            if ((fileCheck.checkInnerFiles() == true) && (fileCheck.getInnerFiles() != null)) {
-                System.out.println("-----------------------------------");
-                System.out.println("Input File Mapping");
-                for (int i=0; i<fileCheck.getInnerFiles().length; i++){
-                     System.out.println("D" + i + " : " + fileCheck.getInnerFiles()[i]);
-                }
-                DocumentsProcessor documentsProcessor = new DocumentsProcessor(fileCheck.getInnerFiles());
-                documentsProcessor.processDocuments();
+        System.out.println("======================================================================");
+        Scanner scanner = new Scanner(System.in);
+        List<String> fileList = new ArrayList<String>();
+        System.out.println("Enter Files : ");
+        while (scanner.hasNext()) {
+            String detailFilePath = scanner.next();
+            if (detailFilePath.isEmpty() || detailFilePath.equals("") || detailFilePath.equals(" ")) {
+                break;
+            } else {
+                fileList.add("/home/mwang2/test/coen281/" + detailFilePath);
             }
-            else {
-                System.out.println("-----------------------------------");
-                System.out.format("ERROR : input file %s inner data files are invalid", detailFilePath);
+        }
+
+        boolean fileCheckStatus = true;
+        for (int i = 0; i < fileList.size(); i++) {
+            if (FileCheck.isFile(fileList.get(i)) == true) {
+                continue;
+            } else {
+                fileCheckStatus = false;
+                break;
             }
-        } else {
+        }
+
+        if (fileCheckStatus == false || fileList.size() == 0) {
             System.out.println("-----------------------------------");
-            System.out.format("ERROR : input file %s is invalid OR does not exist OR is not readable", detailFilePath);
+            System.out.println("ERROR : input file is invalid OR does not exist OR is not readable");
+        } else {
+            String[] fileArray = new String[fileList.size()];
+            fileArray = fileList.toArray(fileArray);
+            DocumentsProcessor documentsProcessor = new DocumentsProcessor(fileArray);
+            documentsProcessor.processDocuments();
         }
     }
-
 }
