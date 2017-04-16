@@ -35,5 +35,9 @@ public class DocumentsProcessor {
         jaccardSimilaritySignatureMatrix.printDocumentSimilarityMatrix();
         jaccardSimilaritySignatureMatrix.printDocumentSimilarityThresholdMatrix();
 
+        int bands = 5;
+        int rows = 1;
+        LocalitySensitiveHashing localitySensitiveHashing = new LocalitySensitiveHashing(signatureMatrix.getSignatureMatrix(), bands, rows);
+
     }
 }
