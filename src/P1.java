@@ -22,7 +22,7 @@ public class P1 {
                 fileList.add("/home/mwang2/test/coen281/" + detailFilePath);
             }
         }
-
+        System.out.println(fileList);
         boolean fileCheckStatus = true;
         for (int i = 0; i < fileList.size(); i++) {
             if (FileCheck.isFile(fileList.get(i)) == true) {
