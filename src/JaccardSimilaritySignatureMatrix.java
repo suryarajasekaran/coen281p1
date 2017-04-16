@@ -36,7 +36,7 @@ public class JaccardSimilaritySignatureMatrix {
                         this.unionArray[j][k] +=1;
                     } else {
                         this.intersectionArray[j][k] += 0;
-                        this.unionArray[j][k] +=1;
+                        this.unionArray[j][k] +=2;
                     }
                 }
             }
