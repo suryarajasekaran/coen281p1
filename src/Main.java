@@ -22,8 +22,6 @@ public class Main {
             } else {
                 System.out.format("input file %s is invalid", detailFilePath);
             }
-
-
         }
     }
 }
