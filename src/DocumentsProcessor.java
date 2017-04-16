@@ -7,7 +7,7 @@ public class DocumentsProcessor {
 
     public String[] documents;
 
-    public DocumentsProcessor(String... documents){
+    public DocumentsProcessor(String[] documents){
         this.documents = documents;
     }
 
