@@ -7,11 +7,11 @@ import java.util.List;
  */
 public class MinHashing {
 
-    public List shingles;
-    public int HASH_LIMIT = 200;
+    public List shingle;
+    public static int HASH_LIMIT = 200;
 
-    public MinHashing(List shingles){
-        this.shingles = shingles;
+    public MinHashing(List shingle){
+        this.shingle = shingle;
     }
 
     public List getRandomNumbers(){
@@ -24,8 +24,8 @@ public class MinHashing {
 
     public List getHash(int randomNumber){
         List outHash = new ArrayList();
-        for (int i = 0; i < this.shingles.size(); i++) {
-            outHash.add(this.shingles.get(i).hashCode()^randomNumber);
+        for (int i = 0; i < this.shingle.size(); i++) {
+            outHash.add(this.shingle.get(i).hashCode()^randomNumber);
         }
         return outHash;
     }
@@ -34,12 +34,11 @@ public class MinHashing {
         return Collections.min(hashList);
     }
 
-    public List getMinHashSet(){
-        List outMinHashSet = new ArrayList();
+    public List<Integer> getMinHashList(){
+        List<Integer> outMinHashSet = new ArrayList();
         for (int i=0; i<this.getRandomNumbers().size(); i++) {
             outMinHashSet.add(this.getMinHash(this.getHash(this.getRandomNumbers().indexOf(i))));
         }
         return outMinHashSet;
     }
-
 }

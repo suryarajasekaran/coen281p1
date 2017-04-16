@@ -4,7 +4,7 @@ import java.util.Map;
 /**
  * Created by SuryaRajasekaran on 4/14/17.
  */
-public class JaccardSimilarity {
+public class JaccardSimilarityBinaryMatrix {
 
     HashMap<String, int[]> binaryMatrix;
     int[][] intersectionArray;
@@ -12,7 +12,7 @@ public class JaccardSimilarity {
     float[][] documentSimilarityArray;
     Boolean[][] documentSimilarityThresholdArray;
 
-    public JaccardSimilarity(HashMap<String, int[]> binaryMatrix){
+    public JaccardSimilarityBinaryMatrix(HashMap<String, int[]> binaryMatrix){
         this.binaryMatrix = binaryMatrix;
         this.intersectionArray = new int[this.getTotalDocumentsCount()][this.getTotalDocumentsCount()];
         this.unionArray = new int[this.getTotalDocumentsCount()][this.getTotalDocumentsCount()];

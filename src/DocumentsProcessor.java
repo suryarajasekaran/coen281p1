@@ -20,11 +20,19 @@ public class DocumentsProcessor {
         }
         BinaryMatrix binaryMatrix = new BinaryMatrix(shinglingResults);
         binaryMatrix.printBinaryMatrix();
-        JaccardSimilarity jaccardSimilarity = new JaccardSimilarity(binaryMatrix.getBinaryMatrix());
-        jaccardSimilarity.printIntersectionArray();
-        jaccardSimilarity.printUnionArray();
-        jaccardSimilarity.printDocumentSimilarityMatrix();
-        jaccardSimilarity.printDocumentSimilarityThresholdMatrix();
-    }
+        JaccardSimilarityBinaryMatrix jaccardSimilarityBinaryMatrix = new JaccardSimilarityBinaryMatrix(binaryMatrix.getBinaryMatrix());
+        jaccardSimilarityBinaryMatrix.printIntersectionArray();
+        jaccardSimilarityBinaryMatrix.printUnionArray();
+        jaccardSimilarityBinaryMatrix.printDocumentSimilarityMatrix();
+        jaccardSimilarityBinaryMatrix.printDocumentSimilarityThresholdMatrix();
 
+        SingularMatrix singularMatrix = new SingularMatrix(shinglingResults);
+        singularMatrix.printSignatureMatrix();
+        JaccardSimilaritySignatureMatrix jaccardSimilaritySignatureMatrix = new JaccardSimilaritySignatureMatrix(singularMatrix.getSingularMatrix());
+        jaccardSimilaritySignatureMatrix.printIntersectionArray();
+        jaccardSimilaritySignatureMatrix.printUnionArray();
+        jaccardSimilaritySignatureMatrix.printDocumentSimilarityMatrix();
+        jaccardSimilaritySignatureMatrix.printDocumentSimilarityThresholdMatrix();
+
+    }
 }
