@@ -5,7 +5,13 @@ public class Main {
 
     public static void main(String[] args){
 
-        DocumentsProcessor documentsProcessor = new DocumentsProcessor("/Users/SuryaRajasekaran/scratch/coen281p1/input/f1Surya.txt",
+
+
+        for (String s: args) {
+            System.out.println(s);
+        }
+
+        /*DocumentsProcessor documentsProcessor = new DocumentsProcessor("/Users/SuryaRajasekaran/scratch/coen281p1/input/f1Surya.txt",
                                                                     "/Users/SuryaRajasekaran/scratch/coen281p1/input/f1.txt",
                                                                     "/Users/SuryaRajasekaran/scratch/coen281p1/input/f2.txt",
                                                                     "/Users/SuryaRajasekaran/scratch/coen281p1/input/f3.txt",
@@ -16,7 +22,7 @@ public class Main {
 
 
 
-        documentsProcessor.processDocuments();
+        documentsProcessor.processDocuments();*/
 
 
     }
