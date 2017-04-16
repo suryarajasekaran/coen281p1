@@ -7,7 +7,7 @@ public class DocumentsProcessor {
 
     public String[] documents;
 
-    public DocumentsProcessor(String... documents){
+    public DocumentsProcessor(String[] documents){
         this.documents = documents;
     }
 
@@ -29,7 +29,7 @@ public class DocumentsProcessor {
 
         SignatureMatrix signatureMatrix = new SignatureMatrix(shinglingResults);
         signatureMatrix.printSignatureMatrix();
-        JaccardSimilaritySignatureMatrix jaccardSimilaritySignatureMatrix = new JaccardSimilaritySignatureMatrix(signatureMatrix.getSingularMatrix());
+        JaccardSimilaritySignatureMatrix jaccardSimilaritySignatureMatrix = new JaccardSimilaritySignatureMatrix(signatureMatrix.getSignatureMatrix());
         jaccardSimilaritySignatureMatrix.printIntersectionArray();
         jaccardSimilaritySignatureMatrix.printUnionArray();
         jaccardSimilaritySignatureMatrix.printDocumentSimilarityMatrix();

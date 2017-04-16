@@ -1,4 +1,3 @@
-import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -12,10 +11,10 @@ public class SignatureMatrix {
     public SignatureMatrix(List[] shingles){
         this.shingles = shingles;
         this.singularMatrix = new int[MinHashing.HASH_LIMIT][this.shingles.length];
-        this.getSingularMatrix();
+        this.getSignatureMatrix();
     }
 
-    public int[][] getSingularMatrix(){
+    public int[][] getSignatureMatrix(){
         for (int i=0; i<this.shingles.length; i++){
             MinHashing minHashing = new MinHashing(this.shingles[i]);
             List minHashingList = minHashing.getMinHashList();
