@@ -23,7 +23,7 @@ public class JaccardSimilaritySignatureMatrix {
     }
 
     public int getTotalDocumentsCount(){
-        return 7;
+        return this.signatureMatrix[0].length;
     }
 
     public float[][] getDocumentSimilarityMatrix() {
