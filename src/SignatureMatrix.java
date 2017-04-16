@@ -4,12 +4,12 @@ import java.util.List;
 /**
  * Created by SuryaRajasekaran on 4/15/17.
  */
-public class SingularMatrix {
+public class SignatureMatrix {
 
     List[] shingles;
     public int[][] singularMatrix;
 
-    public SingularMatrix(List[] shingles){
+    public SignatureMatrix(List[] shingles){
         this.shingles = shingles;
         this.singularMatrix = new int[MinHashing.HASH_LIMIT][this.shingles.length];
         this.getSingularMatrix();

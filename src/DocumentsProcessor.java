@@ -18,6 +18,7 @@ public class DocumentsProcessor {
             Shingling shingling = new Shingling(fileRead.getFileContents());
             shinglingResults[i] = shingling.getShingles();
         }
+
         BinaryMatrix binaryMatrix = new BinaryMatrix(shinglingResults);
         binaryMatrix.printBinaryMatrix();
         JaccardSimilarityBinaryMatrix jaccardSimilarityBinaryMatrix = new JaccardSimilarityBinaryMatrix(binaryMatrix.getBinaryMatrix());
@@ -26,9 +27,9 @@ public class DocumentsProcessor {
         jaccardSimilarityBinaryMatrix.printDocumentSimilarityMatrix();
         jaccardSimilarityBinaryMatrix.printDocumentSimilarityThresholdMatrix();
 
-        SingularMatrix singularMatrix = new SingularMatrix(shinglingResults);
-        singularMatrix.printSignatureMatrix();
-        JaccardSimilaritySignatureMatrix jaccardSimilaritySignatureMatrix = new JaccardSimilaritySignatureMatrix(singularMatrix.getSingularMatrix());
+        SignatureMatrix signatureMatrix = new SignatureMatrix(shinglingResults);
+        signatureMatrix.printSignatureMatrix();
+        JaccardSimilaritySignatureMatrix jaccardSimilaritySignatureMatrix = new JaccardSimilaritySignatureMatrix(signatureMatrix.getSingularMatrix());
         jaccardSimilaritySignatureMatrix.printIntersectionArray();
         jaccardSimilaritySignatureMatrix.printUnionArray();
         jaccardSimilaritySignatureMatrix.printDocumentSimilarityMatrix();
