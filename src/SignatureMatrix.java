@@ -28,12 +28,12 @@ public class SignatureMatrix {
     public void printSignatureMatrix(){
         System.out.println("-----------------------------------");
         System.out.println("Signature Matrix (of hashed shingles)");
-        for (int i=0; i<7; i++) {
+        for (int i=0; i<this.shingles.length; i++) {
             System.out.format("%16s", "D" + i);
         }
         System.out.println();
         for (int i=0; i<MinHashing.HASH_LIMIT; i++) {
-            for (int j=0; j<7; j++){
+            for (int j=0; j<this.shingles.length; j++){
                 System.out.format("%16d", this.singularMatrix[i][j]);
             }
             System.out.println();
