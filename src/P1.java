@@ -13,7 +13,6 @@ public class P1 {
         System.out.println("======================================================================");
         Scanner scanner = new Scanner(System.in);
         List<String> fileList = new ArrayList<String>();
-        System.out.println("Enter Files : ");
         while (scanner.hasNext()) {
             String detailFilePath = scanner.next();
             if (detailFilePath.isEmpty() || detailFilePath.equals("") || detailFilePath.equals(" ")) {
@@ -22,6 +21,7 @@ public class P1 {
                 fileList.add("/home/mwang2/test/coen281/" + detailFilePath);
             }
         }
+        System.out.println("Entered Files : ");
         System.out.println(fileList);
         boolean fileCheckStatus = true;
         for (int i = 0; i < fileList.size(); i++) {
@@ -37,6 +37,11 @@ public class P1 {
             System.out.println("-----------------------------------");
             System.out.println("ERROR : input file is invalid OR does not exist OR is not readable");
         } else {
+            System.out.println("-----------------------------------");
+            System.out.println("File Mapper");
+            for (int i = 0; i < fileList.size(); i++) {
+                System.out.println("D" + i + " : " + fileList.get(i));
+            }
             String[] fileArray = new String[fileList.size()];
             fileArray = fileList.toArray(fileArray);
             DocumentsProcessor documentsProcessor = new DocumentsProcessor(fileArray);
