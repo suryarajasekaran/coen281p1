@@ -22,22 +22,12 @@ public class DocumentsProcessor {
         BinaryMatrix binaryMatrix = new BinaryMatrix(shinglingResults);
         binaryMatrix.printBinaryMatrix();
         JaccardSimilarityBinaryMatrix jaccardSimilarityBinaryMatrix = new JaccardSimilarityBinaryMatrix(binaryMatrix.getBinaryMatrix());
-        jaccardSimilarityBinaryMatrix.printIntersectionArray();
-        jaccardSimilarityBinaryMatrix.printUnionArray();
-        jaccardSimilarityBinaryMatrix.printDocumentSimilarityMatrix();
-        jaccardSimilarityBinaryMatrix.printDocumentSimilarityThresholdMatrix();
 
         int HASH_LIMIT_PERMUTATIONS = OptimalCalculator.calculateOptimalPermutations(binaryMatrix.getShinglesCount());
 
         SignatureMatrix signatureMatrix = new SignatureMatrix(shinglingResults, HASH_LIMIT_PERMUTATIONS);
         signatureMatrix.printSignatureMatrix();
         JaccardSimilaritySignatureMatrix jaccardSimilaritySignatureMatrix = new JaccardSimilaritySignatureMatrix(signatureMatrix.getSignatureMatrix(), HASH_LIMIT_PERMUTATIONS);
-        jaccardSimilaritySignatureMatrix.printIntersectionArray();
-        jaccardSimilaritySignatureMatrix.printUnionArray();
-        jaccardSimilaritySignatureMatrix.printDocumentSimilarityMatrix();
-        jaccardSimilaritySignatureMatrix.printDocumentSimilarityThresholdMatrix();
-
-        OptimalCalculator.printOptimalBandRowPairs(OptimalCalculator.calculateOptimalBandRowPairs(HASH_LIMIT_PERMUTATIONS));
 
         double d1 = 0.2;
         double d2 = 0.8;
@@ -48,7 +38,18 @@ public class DocumentsProcessor {
         int bands = OptimalCalculator.calculateOptimalBandRow(0.2, 0.8, 0.997, 0.003, OptimalCalculator.calculateOptimalBandRowPairs(HASH_LIMIT_PERMUTATIONS))[1];
 
         LocalitySensitiveHashing localitySensitiveHashing = new LocalitySensitiveHashing(signatureMatrix.getSignatureMatrix(), bands, rows, HASH_LIMIT_PERMUTATIONS);
+
+        //jaccardSimilarityBinaryMatrix.printIntersectionArray();
+        //jaccardSimilarityBinaryMatrix.printUnionArray();
+        jaccardSimilarityBinaryMatrix.printDocumentSimilarityMatrix();
+        jaccardSimilarityBinaryMatrix.printDocumentSimilarityThresholdMatrix();
+        //jaccardSimilaritySignatureMatrix.printIntersectionArray();
+        //jaccardSimilaritySignatureMatrix.printUnionArray();
+        jaccardSimilaritySignatureMatrix.printDocumentSimilarityMatrix();
+        jaccardSimilaritySignatureMatrix.printDocumentSimilarityThresholdMatrix();
+        OptimalCalculator.printOptimalBandRowPairs(OptimalCalculator.calculateOptimalBandRowPairs(HASH_LIMIT_PERMUTATIONS));
         localitySensitiveHashing.printBandSignatureMatrix();
         localitySensitiveHashing.printLSHBandBuckets();
+        //localitySensitiveHashing.printBandDocumentSimilarityMatrix();
     }
 }

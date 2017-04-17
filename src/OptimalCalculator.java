@@ -60,7 +60,6 @@ public class OptimalCalculator {
             double p1_compute = (1 - Math.pow((1 - Math.pow(d1,r)),b));
             double p2_compute = (1 - Math.pow((1 - Math.pow(d1,r)),b));
             minDiffCalculator[i] = Math.abs(p1_compute - p1) + Math.abs(p2_compute - p2);
-            System.out.println(r + " " + b + " " + p1_compute + " " + p1 + " " + p2_compute + " " + p2);
         }
         return possibleBandRowPairs.get(minDiffCalculator.length/2 - 1);
     }
