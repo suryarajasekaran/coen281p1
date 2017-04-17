@@ -31,6 +31,11 @@ public class BinaryMatrix {
         return this.binaryMatrix;
     }
 
+    public int getShinglesCount(){
+        this.getBinaryMatrix();
+        return this.binaryMatrix.size();
+    }
+
     public void printBinaryMatrix(){
         this.getBinaryMatrix();
         System.out.println("-----------------------------------");

@@ -7,10 +7,12 @@ public class SignatureMatrix {
 
     List[] shingles;
     public int[][] singularMatrix;
+    int hashLimitPermutations;
 
-    public SignatureMatrix(List[] shingles){
+    public SignatureMatrix(List[] shingles, int hashLimitPerumtations){
         this.shingles = shingles;
-        this.singularMatrix = new int[MinHashing.HASH_LIMIT][this.shingles.length];
+        this.hashLimitPermutations = hashLimitPerumtations;
+        this.singularMatrix = new int[this.hashLimitPermutations][this.shingles.length];
         this.getSignatureMatrix();
     }
 
@@ -18,7 +20,7 @@ public class SignatureMatrix {
         for (int i=0; i<this.shingles.length; i++){
             MinHashing minHashing = new MinHashing(this.shingles[i]);
             List minHashingList = minHashing.getMinHashList();
-            for (int j=0; j<MinHashing.HASH_LIMIT; j++) {
+            for (int j=0; j<this.hashLimitPermutations; j++) {
                 this.singularMatrix[j][i] = Integer.parseInt(minHashingList.get(j).toString());
             }
         }
@@ -32,7 +34,7 @@ public class SignatureMatrix {
             System.out.format("%16s", "D" + i);
         }
         System.out.println();
-        for (int i=0; i<MinHashing.HASH_LIMIT; i++) {
+        for (int i=0; i<this.hashLimitPermutations; i++) {
             for (int j=0; j<this.shingles.length; j++){
                 System.out.format("%16d", this.singularMatrix[i][j]);
             }

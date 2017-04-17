@@ -27,17 +27,28 @@ public class DocumentsProcessor {
         jaccardSimilarityBinaryMatrix.printDocumentSimilarityMatrix();
         jaccardSimilarityBinaryMatrix.printDocumentSimilarityThresholdMatrix();
 
-        SignatureMatrix signatureMatrix = new SignatureMatrix(shinglingResults);
+        int HASH_LIMIT_PERMUTATIONS = OptimalCalculator.calculateOptimalPermutations(binaryMatrix.getShinglesCount());
+
+        SignatureMatrix signatureMatrix = new SignatureMatrix(shinglingResults, HASH_LIMIT_PERMUTATIONS);
         signatureMatrix.printSignatureMatrix();
-        JaccardSimilaritySignatureMatrix jaccardSimilaritySignatureMatrix = new JaccardSimilaritySignatureMatrix(signatureMatrix.getSignatureMatrix());
+        JaccardSimilaritySignatureMatrix jaccardSimilaritySignatureMatrix = new JaccardSimilaritySignatureMatrix(signatureMatrix.getSignatureMatrix(), HASH_LIMIT_PERMUTATIONS);
         jaccardSimilaritySignatureMatrix.printIntersectionArray();
         jaccardSimilaritySignatureMatrix.printUnionArray();
         jaccardSimilaritySignatureMatrix.printDocumentSimilarityMatrix();
         jaccardSimilaritySignatureMatrix.printDocumentSimilarityThresholdMatrix();
 
-        int bands = 5;
-        int rows = 1;
-        LocalitySensitiveHashing localitySensitiveHashing = new LocalitySensitiveHashing(signatureMatrix.getSignatureMatrix(), bands, rows);
+        OptimalCalculator.printOptimalBandRowPairs(OptimalCalculator.calculateOptimalBandRowPairs(HASH_LIMIT_PERMUTATIONS));
 
+        double d1 = 0.2;
+        double d2 = 0.8;
+        double p1 = 0.997;
+        double p2 = 0.003;
+
+        int rows = OptimalCalculator.calculateOptimalBandRow(0.2, 0.8, 0.997, 0.003, OptimalCalculator.calculateOptimalBandRowPairs(HASH_LIMIT_PERMUTATIONS))[0];
+        int bands = OptimalCalculator.calculateOptimalBandRow(0.2, 0.8, 0.997, 0.003, OptimalCalculator.calculateOptimalBandRowPairs(HASH_LIMIT_PERMUTATIONS))[1];
+
+        LocalitySensitiveHashing localitySensitiveHashing = new LocalitySensitiveHashing(signatureMatrix.getSignatureMatrix(), bands, rows, HASH_LIMIT_PERMUTATIONS);
+        localitySensitiveHashing.printBandSignatureMatrix();
+        localitySensitiveHashing.printLSHBandBuckets();
     }
 }

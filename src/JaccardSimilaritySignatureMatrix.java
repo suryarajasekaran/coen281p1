@@ -11,8 +11,10 @@ public class JaccardSimilaritySignatureMatrix {
     int[][] unionArray;
     float[][] documentSimilarityArray;
     Boolean[][] documentSimilarityThresholdArray;
+    int hashLimitPermutations;
 
-    public JaccardSimilaritySignatureMatrix(int[][] signatureMatrix){
+    public JaccardSimilaritySignatureMatrix(int[][] signatureMatrix, int hashLimitPermutations){
+        this.hashLimitPermutations = hashLimitPermutations;
         this.signatureMatrix = signatureMatrix;
         this.intersectionArray = new int[this.getTotalDocumentsCount()][this.getTotalDocumentsCount()];
         this.unionArray = new int[this.getTotalDocumentsCount()][this.getTotalDocumentsCount()];
@@ -28,7 +30,7 @@ public class JaccardSimilaritySignatureMatrix {
 
     public float[][] getDocumentSimilarityMatrix() {
 
-        for (int i=0; i<MinHashing.HASH_LIMIT;i++){
+        for (int i=0; i<this.hashLimitPermutations;i++){
             for (int j=0; j<this.getTotalDocumentsCount(); j++){
                 for (int k=0; k<this.getTotalDocumentsCount(); k++){
                     if (this.signatureMatrix[i][j] == this.signatureMatrix[i][k]) {
