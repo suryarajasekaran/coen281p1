@@ -60,6 +60,7 @@ public class DocumentsProcessor {
         localitySensitiveHashing.printBandSignatureMatrix(); //done
         localitySensitiveHashing.printLSHBandBuckets(); //done
         localitySensitiveHashing.printDocumentSimilarityThresholdMatrix(); //done
-        jaccardSimilarityBinaryMatrix.printDocumentSimilarityThresholdMatrix(); //done
+        jaccardSimilarityBinaryMatrix.printSimilarDocuments(); //done
+        jaccardSimilarityBinaryMatrix.printSimilarDocumentSets();
     }
 }

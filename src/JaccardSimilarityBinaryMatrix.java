@@ -136,4 +136,33 @@ public class JaccardSimilarityBinaryMatrix {
         }
     }
 
+    public void printSimilarDocuments(){
+        System.out.println("-----------------------------------");
+        System.out.println("FINAL : Similar Documents");
+        System.out.print("\t\t");
+        for (int i=0; i<this.getTotalDocumentsCount(); i++) {
+            System.out.format("%10s", "D" + i);
+        }
+        System.out.println();
+        for (int i=0; i<this.getTotalDocumentsCount(); i++) {
+            System.out.print("D" + i + "\t\t");
+            for (int j=0; j<this.getTotalDocumentsCount(); j++){
+                System.out.format("%10s", this.documentSimilarityThresholdArray[i][j].toString());
+            }
+            System.out.println();
+        }
+    }
+
+    public void printSimilarDocumentSets(){
+        System.out.println("-----------------------------------");
+        System.out.println("FINAL : Similar Document Pairs");
+        for (int i=0; i<this.getTotalDocumentsCount(); i++) {
+            for (int j=i+1; j<this.getTotalDocumentsCount(); j++){
+                if (this.documentSimilarityThresholdArray[i][j] == true) {
+                    System.out.println("=>  D" + i + "," + "D" + j);
+                }
+            }
+        }
+    }
+
 }

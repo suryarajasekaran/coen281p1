@@ -9,7 +9,7 @@ public class P1 {
 
     public static void main(String[] args) {
 
-        /*System.out.println();
+        System.out.println();
         System.out.println("======================================================================");
         Scanner scanner = new Scanner(System.in);
         List<String> fileList = new ArrayList<String>();
@@ -20,16 +20,15 @@ public class P1 {
             } else {
                 fileList.add("/home/mwang2/test/coen281/" + detailFilePath);
             }
-        }*/
-        List<String> fileList = new ArrayList<String>();
+        }
+        /*List<String> fileList = new ArrayList<String>();
         fileList.add("/Users/SuryaRajasekaran/scratch/coen281p1/input/f1.txt");
         fileList.add("/Users/SuryaRajasekaran/scratch/coen281p1/input/f1Surya.txt");
         fileList.add("/Users/SuryaRajasekaran/scratch/coen281p1/input/f2.txt");
         fileList.add("/Users/SuryaRajasekaran/scratch/coen281p1/input/f2.txt");
         fileList.add("/Users/SuryaRajasekaran/scratch/coen281p1/input/f4.txt");
         fileList.add("/Users/SuryaRajasekaran/scratch/coen281p1/input/f5.txt");
-        fileList.add("/Users/SuryaRajasekaran/scratch/coen281p1/input/f6.txt");
-
+        fileList.add("/Users/SuryaRajasekaran/scratch/coen281p1/input/f6.txt");*/
         System.out.println("Entered Files : ");
         System.out.println(fileList);
         boolean fileCheckStatus = true;

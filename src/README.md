@@ -24,3 +24,14 @@ p1 assignment link : http://www.cse.scu.edu/~mwang2/mining/p1.pdf
         - construct the banded-document-matrix (by AND) operation
         - contruct the final-document-matrix (by OR) operation
 
+Followed these requirements :
+DONE - Correctness and boundary condition
+DONE - Compiling without warnings
+DONE - Error Handling
+DONE - Modular design
+DONE - file/directory organizing
+DONE - showing input
+DONE - documentation
+DONE - coding standards
+DONE - Automation
+
