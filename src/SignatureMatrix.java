@@ -29,7 +29,7 @@ public class SignatureMatrix {
 
     public void printSignatureMatrix(){
         System.out.println("-----------------------------------");
-        System.out.println("Signature Matrix (of hashed shingles)");
+        System.out.println("MinHash : Signature Matrix (of hashed shingles)");
         for (int i=0; i<this.shingles.length; i++) {
             System.out.format("%16s", "D" + i);
         }

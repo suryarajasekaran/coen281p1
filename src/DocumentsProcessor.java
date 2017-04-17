@@ -20,13 +20,11 @@ public class DocumentsProcessor {
         }
 
         BinaryMatrix binaryMatrix = new BinaryMatrix(shinglingResults);
-        binaryMatrix.printBinaryMatrix();
         JaccardSimilarityBinaryMatrix jaccardSimilarityBinaryMatrix = new JaccardSimilarityBinaryMatrix(binaryMatrix.getBinaryMatrix());
 
         int HASH_LIMIT_PERMUTATIONS = OptimalCalculator.calculateOptimalPermutations(binaryMatrix.getShinglesCount());
 
         SignatureMatrix signatureMatrix = new SignatureMatrix(shinglingResults, HASH_LIMIT_PERMUTATIONS);
-        signatureMatrix.printSignatureMatrix();
         JaccardSimilaritySignatureMatrix jaccardSimilaritySignatureMatrix = new JaccardSimilaritySignatureMatrix(signatureMatrix.getSignatureMatrix(), HASH_LIMIT_PERMUTATIONS);
 
         double d1 = 0.2;
@@ -39,17 +37,28 @@ public class DocumentsProcessor {
 
         LocalitySensitiveHashing localitySensitiveHashing = new LocalitySensitiveHashing(signatureMatrix.getSignatureMatrix(), bands, rows, HASH_LIMIT_PERMUTATIONS);
 
-        //jaccardSimilarityBinaryMatrix.printIntersectionArray();
-        //jaccardSimilarityBinaryMatrix.printUnionArray();
-        jaccardSimilarityBinaryMatrix.printDocumentSimilarityMatrix();
-        jaccardSimilarityBinaryMatrix.printDocumentSimilarityThresholdMatrix();
-        //jaccardSimilaritySignatureMatrix.printIntersectionArray();
-        //jaccardSimilaritySignatureMatrix.printUnionArray();
-        jaccardSimilaritySignatureMatrix.printDocumentSimilarityMatrix();
-        jaccardSimilaritySignatureMatrix.printDocumentSimilarityThresholdMatrix();
-        OptimalCalculator.printOptimalBandRowPairs(OptimalCalculator.calculateOptimalBandRowPairs(HASH_LIMIT_PERMUTATIONS));
-        localitySensitiveHashing.printBandSignatureMatrix();
-        localitySensitiveHashing.printLSHBandBuckets();
+        binaryMatrix.printBinaryMatrix(); //done
+        jaccardSimilarityBinaryMatrix.printIntersectionArray(); //done
+        jaccardSimilarityBinaryMatrix.printUnionArray(); //done
+        jaccardSimilarityBinaryMatrix.printDocumentSimilarityMatrix(); //done
+        jaccardSimilarityBinaryMatrix.printDocumentSimilarityThresholdMatrix(); //done
+        System.out.println("-----------------------------------");
+        System.out.println("MinHash : choosing optimal permutaions using abs(root(N)), where N=>#of shingles");
+        System.out.println("N : " + binaryMatrix.getShinglesCount());
+        System.out.println("abs(root(N)) : " + HASH_LIMIT_PERMUTATIONS);
+        signatureMatrix.printSignatureMatrix(); //done
+        jaccardSimilaritySignatureMatrix.printIntersectionArray(); //done
+        jaccardSimilaritySignatureMatrix.printUnionArray(); //done
+        jaccardSimilaritySignatureMatrix.printDocumentSimilarityMatrix(); //done
+        jaccardSimilaritySignatureMatrix.printDocumentSimilarityThresholdMatrix(); //done
+        OptimalCalculator.printOptimalBandRowPairs(OptimalCalculator.calculateOptimalBandRowPairs(HASH_LIMIT_PERMUTATIONS)); //done
+        System.out.println("-----------------------------------");
+        System.out.println("LSH : choosing optimal Band/Row for given d1=0.2, d2=0.8, p1=0.997, p2=0.003 using formula (1 - (1 - s^r)^b)");
+        System.out.println("Bands : " + bands);
+        System.out.println("Rows : " + rows);
+        // done
+        localitySensitiveHashing.printBandSignatureMatrix(); //done
+        localitySensitiveHashing.printLSHBandBuckets(); //done
         localitySensitiveHashing.printDocumentSimilarityThresholdMatrix(); //done
         jaccardSimilarityBinaryMatrix.printDocumentSimilarityThresholdMatrix(); //done
     }

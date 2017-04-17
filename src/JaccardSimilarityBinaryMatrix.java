@@ -70,7 +70,7 @@ public class JaccardSimilarityBinaryMatrix {
 
     public void printDocumentSimilarityThresholdMatrix(){
         System.out.println("-----------------------------------");
-        System.out.println("Document Similarity Threshold Matrix");
+        System.out.println("Shingling : Document Similarity Threshold Matrix");
         System.out.print("\t\t");
         for (int i=0; i<this.getTotalDocumentsCount(); i++) {
             System.out.format("%10s", "D" + i);
@@ -87,7 +87,7 @@ public class JaccardSimilarityBinaryMatrix {
 
     public void printDocumentSimilarityMatrix(){
         System.out.println("-----------------------------------");
-        System.out.println("Document Similarity Matrix");
+        System.out.println("Shingling : Document Similarity Matrix");
         System.out.print("\t\t");
         for (int i=0; i<this.getTotalDocumentsCount(); i++) {
             System.out.format("%10s", "D" + i);
@@ -104,7 +104,7 @@ public class JaccardSimilarityBinaryMatrix {
 
     public void printIntersectionArray(){
         System.out.println("-----------------------------------");
-        System.out.println("Intersection Array Matrix");
+        System.out.println("Shingling : Intersection Array Matrix");
         System.out.print("\t\t");
         for (int i=0; i<this.getTotalDocumentsCount(); i++) {
             System.out.format("%10s", "D" + i);
@@ -121,7 +121,7 @@ public class JaccardSimilarityBinaryMatrix {
 
     public void printUnionArray(){
         System.out.println("-----------------------------------");
-        System.out.println("Union Array Matrix");
+        System.out.println("Shingling : Union Array Matrix");
         System.out.print("\t\t");
         for (int i=0; i<this.getTotalDocumentsCount(); i++) {
             System.out.format("%10s", "D" + i);

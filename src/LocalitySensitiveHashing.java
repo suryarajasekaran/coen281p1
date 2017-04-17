@@ -93,7 +93,7 @@ public class LocalitySensitiveHashing {
         List<boolean[][]> bandDocumentSimilarityThresholdMatrix = this.getBandDocumentSimilarityThresholdMatrix();
         for (int i=0; i<bandDocumentSimilarityThresholdMatrix.size(); i++){
             boolean[][] bandMatrix = bandDocumentSimilarityThresholdMatrix.get(i);
-            System.out.println("Band"+i);
+            System.out.println("Band"+i + " (ANDing within bucket)");
             System.out.print("\t\t");
             for (int l=0; l<bandMatrix.length; l++) {
                 System.out.format("%10s", "D" + l);
@@ -111,11 +111,19 @@ public class LocalitySensitiveHashing {
     }
 
     public void printBandSignatureMatrix() {
+        System.out.println("-----------------------------------");
+        System.out.println("LSH : Band/Row creation");
         for (int i =0; i<this.bands; i++ ) {
             System.out.println("Band"+i);
+            System.out.print("\t\t");
+            for (int l=0; l<this.totalDocuments; l++) {
+                System.out.format("%12s", "D" + l);
+            }
+            System.out.println();
             for (int j = 0; j < this.rows; j++) {
+                System.out.format("%8s", "row"+j);
                 for (int k = 0; k < this.totalDocuments; k++) {
-                    System.out.print(this.bandSignatureMatrix[i][j][k] + " ");
+                    System.out.format("%12s", this.bandSignatureMatrix[i][j][k]);
                 }
                 System.out.println();
             }
@@ -124,16 +132,20 @@ public class LocalitySensitiveHashing {
     }
 
     public void printLSHBandBuckets() {
+        System.out.println("-----------------------------------");
+        System.out.println("LSH : Band Bucketing");
         HashMap<Integer, List<String>>[] lshBandBuckets = this.getLSHBandBuckets();
         for (int i =0; i<this.bands; i++ ){
             System.out.println("Band"+i);
+            int j = 0;
             for (Map.Entry<Integer,List<String>> item : lshBandBuckets[i].entrySet()) {
                 Integer key = item.getKey();
                 List<String> value = item.getValue();
-                System.out.format("%12s", key);
-                System.out.print(value);
+                System.out.format("%12s%20s%20s", "Bucket"+j,key,value);
                 System.out.println();
+                j+=1;
             }
+            System.out.println();
         }
     }
 

@@ -39,7 +39,7 @@ public class BinaryMatrix {
     public void printBinaryMatrix(){
         this.getBinaryMatrix();
         System.out.println("-----------------------------------");
-        System.out.println("Binary Matrix");
+        System.out.println("Shingling : Binary Matrix");
         System.out.print("\t\t\t");
         for (int i=0; i<shingles.length; i++) {
             System.out.format("%8s", "D" + i);

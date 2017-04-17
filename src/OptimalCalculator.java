@@ -47,6 +47,8 @@ public class OptimalCalculator {
     }
 
     public static void printOptimalBandRowPairs(List<int[]> possibleBandRowPairs){
+        System.out.println("-----------------------------------");
+        System.out.println("LSH : Band/Row possible pairs, abs(root(N)), where N=>#of shingles");
         for (int i=0; i<possibleBandRowPairs.size(); i++){
             System.out.println("Combination"+i + " : " + possibleBandRowPairs.get(i)[0] + "," + possibleBandRowPairs.get(i)[1]);
         }
