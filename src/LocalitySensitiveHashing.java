@@ -1,4 +1,3 @@
-import java.security.KeyException;
 import java.util.*;
 
 /**
@@ -69,6 +68,39 @@ public class LocalitySensitiveHashing {
         return lshBandBuckets;
     }
 
+    public List<boolean[][]> getBandDocumentSimilarityThresholdMatrix(){
+        List<boolean[][]> bandDocumentSimilarityThresholdMatrix = new ArrayList<boolean[][]>();
+        HashMap<Integer, List<String>>[] lshBandBuckets = this.getLSHBandBuckets();
+        for (int i =0; i<this.bands; i++ ){
+            boolean[][] documentSimilarityThresholdMatrix = new boolean[this.totalDocuments][this.totalDocuments];
+            for (Map.Entry<Integer,List<String>> item : lshBandBuckets[i].entrySet()) {
+                Integer key = item.getKey();
+                List<String> value = item.getValue();
+                for (int j=0; j<value.size(); j++){
+                    for (int k=0; k<value.size(); k++) {
+                        documentSimilarityThresholdMatrix[Integer.parseInt(value.get(j).replace("D", ""))][Integer.parseInt(value.get(k).replace("D", ""))] = true;
+                    }
+                }
+            }
+            bandDocumentSimilarityThresholdMatrix.add(documentSimilarityThresholdMatrix);
+        }
+        return bandDocumentSimilarityThresholdMatrix;
+    }
+
+    public void printDocumentSimilarityThresholdMatrix(){
+        List<boolean[][]> bandDocumentSimilarityThresholdMatrix = this.getBandDocumentSimilarityThresholdMatrix();
+        for (int i=0; i<bandDocumentSimilarityThresholdMatrix.size(); i++){
+            boolean[][] bandMatrix = bandDocumentSimilarityThresholdMatrix.get(i);
+            System.out.println("Band"+i);
+            for (int j=0; j<bandMatrix.length; j++){
+                for (int k=0; k<bandMatrix.length; k++){
+                    System.out.print(bandMatrix[j][k] + " ");
+                }
+                System.out.println();
+            }
+        }
+    }
+
     public void printBandSignatureMatrix() {
         for (int i =0; i<this.bands; i++ ) {
             System.out.println("Band"+i);
@@ -95,6 +127,7 @@ public class LocalitySensitiveHashing {
             }
         }
     }
+
 
 
 }
