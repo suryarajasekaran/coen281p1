@@ -62,18 +62,6 @@ public class OptimalCalculator {
             minDiffCalculator[i] = Math.abs(p1_compute - p1) + Math.abs(p2_compute - p2);
             System.out.println(r + " " + b + " " + p1_compute + " " + p1 + " " + p2_compute + " " + p2);
         }
-        return possibleBandRowPairs.get(minIndex(minDiffCalculator));
-    }
-
-    private static int minIndex(double[] array) {
-        double min = array[0];
-        int index = 0;
-        for (int i = 1; i < array.length; i++) {
-            if (array[i] < min) {
-                min = array[i];
-                index = i;
-            }
-        }
-        return index;
+        return possibleBandRowPairs.get(minDiffCalculator.length/2 - 1);
     }
 }
