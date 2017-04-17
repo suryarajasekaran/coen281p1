@@ -50,7 +50,7 @@ public class DocumentsProcessor {
         OptimalCalculator.printOptimalBandRowPairs(OptimalCalculator.calculateOptimalBandRowPairs(HASH_LIMIT_PERMUTATIONS));
         localitySensitiveHashing.printBandSignatureMatrix();
         localitySensitiveHashing.printLSHBandBuckets();
-        localitySensitiveHashing.printDocumentSimilarityThresholdMatrix();
-        jaccardSimilarityBinaryMatrix.printDocumentSimilarityThresholdMatrix();
+        localitySensitiveHashing.printDocumentSimilarityThresholdMatrix(); //done
+        jaccardSimilarityBinaryMatrix.printDocumentSimilarityThresholdMatrix(); //done
     }
 }

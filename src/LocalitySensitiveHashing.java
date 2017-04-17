@@ -88,16 +88,25 @@ public class LocalitySensitiveHashing {
     }
 
     public void printDocumentSimilarityThresholdMatrix(){
+        System.out.println("-----------------------------------");
+        System.out.println("LSH : Band Document Similarity Threshold Matrix");
         List<boolean[][]> bandDocumentSimilarityThresholdMatrix = this.getBandDocumentSimilarityThresholdMatrix();
         for (int i=0; i<bandDocumentSimilarityThresholdMatrix.size(); i++){
             boolean[][] bandMatrix = bandDocumentSimilarityThresholdMatrix.get(i);
             System.out.println("Band"+i);
+            System.out.print("\t\t");
+            for (int l=0; l<bandMatrix.length; l++) {
+                System.out.format("%10s", "D" + l);
+            }
+            System.out.println();
             for (int j=0; j<bandMatrix.length; j++){
+                System.out.print("D" + j + "\t\t");
                 for (int k=0; k<bandMatrix.length; k++){
-                    System.out.print(bandMatrix[j][k] + " ");
+                    System.out.format("%10s", bandMatrix[j][k]);
                 }
                 System.out.println();
             }
+            System.out.println();
         }
     }
 
